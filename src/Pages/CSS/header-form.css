@@ -1,0 +1,117 @@
+header{
+    width: auto;
+    height: auto;
+
+    padding: 1rem 2rem;
+
+    border-radius: 3rem;
+
+    margin: 3rem auto;
+
+    
+
+    z-index: 1;
+
+    /* box-shadow: .5rem .5rem .5rem rgba(0, 0, 0, 0.5); */
+
+}
+
+
+header form{
+    --form-column-gap: 3.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    column-gap: var(--form-column-gap);
+
+}
+
+
+
+
+
+
+
+
+
+
+header button[type="submit"]{
+    flex-shrink: 0;
+
+    position: relative;
+
+    width: 3rem;
+    aspect-ratio: 1;
+
+    background-color: transparent;
+
+    cursor: pointer;
+
+}
+
+header button[type="submit"]::after{
+    content: '';
+
+    width: .2rem;
+    height: 90%;
+
+    border-radius: 50%;
+
+    background-color: white;
+
+    position: absolute;
+    left: calc(100% + var(--form-column-gap) / 2);
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    cursor: auto;
+}
+
+
+header button[type="submit"] svg{
+    width: 100%;
+    height: 100%;
+
+    stroke: white;
+    fill: transparent;
+}
+
+
+
+
+
+header fieldset{
+    flex-shrink: 0;
+    flex-grow: 1;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    height: 100%;
+    width: 30rem;
+
+
+    font-size: large;
+}
+
+
+header fieldset label{
+    grid-area: 1 / 1 / 1 / 1;
+}
+
+
+header fieldset input{
+    grid-area: 1 / 1 / 1 / 1;
+
+    background-color: transparent;
+}
+
+
+
+header fieldset input::placeholder{
+    color: rgb(156, 156, 156);
+}

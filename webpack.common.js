@@ -60,7 +60,7 @@ const config = {
                     sources: {
                         list: [
                             {
-                                tag: "source",
+                                tag: "img",
                                 attribute: "src",
                                 type: "src"
                             },
@@ -70,7 +70,12 @@ const config = {
                                 type: "src"
                             },
                             {
-                                tag: "img",
+                                tag: "source",
+                                attribute: "src",
+                                type: "src"
+                            },
+                            {
+                                tag: "video",
                                 attribute: "src",
                                 type: "src"
                             }

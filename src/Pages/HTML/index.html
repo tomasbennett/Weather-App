@@ -4,8 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="../Media/Images/weather.png">
 </head>
 <body>
+
     
+
+    <aside>
+        <div id="background-video-container">
+            <video 
+                src="../Media/Videos/sunny-sky.mp4"
+                autoplay 
+                loop 
+                muted 
+                playsinline 
+                preload="auto"
+                style="pointer-events: none;"
+            ></video>
+            <div id="blur-window-background"></div>
+
+        </div>
+    </aside>
+
+    <header class="background" data-background-colour="day-mode">
+        <form method="dialog">
+            <button type="submit">
+
+                <?xml version="1.0" encoding="utf-8"?>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+            </button>
+            
+            <fieldset>
+                <label for="search-input"></label>
+                <input placeholder="Search..." type="text" name="search-input" id="search-input">
+            </fieldset>
+        </form>
+    </header>
+
+    <main>
+        <div id="all-info-container" data-background-colour="day-mode">
+            <h1 id="city-name">London</h1>
+            
+            <address id="full-address">London City, England, UK</address>
+            
+            <div id="weather-icon-container">
+
+            </div>
+
+            <p id="temp">16<sup>&deg;</sup>C</p>
+
+            <p id="weather-description">
+                It is always raining here no need to type this in. Please search another city
+            </p>
+
+        </div>
+    </main>
+
+
+
 </body>
 </html>
