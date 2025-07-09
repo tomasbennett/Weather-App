@@ -1,16 +1,18 @@
 header{
-    width: auto;
-    height: auto;
+    /* width: auto;
+    height: auto; */
 
-    padding: 1rem 2rem;
-
-    border-radius: 3rem;
-
-    margin: 3rem auto;
+    padding: var(--body-padding);
 
     
+    margin-left: auto;
+    /* margin-top: 3rem;
+    margin-left: auto; */
+    /* margin-right: 1.5rem; */
+    
 
-    z-index: 1;
+
+    
 
     /* box-shadow: .5rem .5rem .5rem rgba(0, 0, 0, 0.5); */
 
@@ -20,11 +22,24 @@ header{
 header form{
     --form-column-gap: 3.5rem;
 
+    /* width: auto; */
+    width: min-content;
+
+
     display: flex;
     align-items: center;
     justify-content: center;
 
     column-gap: var(--form-column-gap);
+
+
+    padding: 1rem 2rem;
+
+    border-radius: 3rem;
+
+
+
+    z-index: 1;
 
 }
 

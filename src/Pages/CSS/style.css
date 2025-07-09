@@ -1,5 +1,7 @@
 :root{
     font-size: 62.5%;
+
+    --body-padding: 3rem 1.5rem;
 }
 
 
@@ -38,11 +40,13 @@ body{
     width: 100dvw;
     height: 100dvh;
 
+    
+
     /* z-index: 0; */
 }
 
 
 [data-background-colour="day-mode"]{
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(88, 88, 88, 0.3);
     backdrop-filter: blur(8px);
 }
