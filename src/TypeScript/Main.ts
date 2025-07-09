@@ -1,6 +1,50 @@
 import { Chart, ChartConfiguration, registerables } from "chart.js";
-import { link } from "fs";
 import { timeSeriesCanvas } from "./components/TimeSeriesCanvas";
+import { IScreenData } from "./models/ScreenDataSchema";
+
+
+
+async function runScreenData(city: string): Promise<void> {
+    const importedData = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=QX7YVMKWSVCC9FAWFJ764XJ2C`);
+    const importedJSON = await importedData.json() as IScreenData;
+    
+    if (importedJSON)
+
+    return;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Chart.register(...registerables);
@@ -21,9 +65,10 @@ const config: ChartConfiguration = {
             {
                 label: "Temperature (°C)",
                 data: temperatures,
-                borderColor: 'rgba(255, 99, 132, 1)',
+                borderColor: 'rgba(255, 255, 255, 1)',
                 fill: false,
                 tension: 0.1
+
             }
         ]
     },
@@ -32,13 +77,15 @@ const config: ChartConfiguration = {
             x: {
                 title: {
                 display: true,
-                text: 'Date'
+                text: 'Date',
+                color: 'rgba(255, 255, 255, 1)'
                 }
             },
             y: {
                 title: {
                     display: true,
-                    text: 'Temperature (°C)'
+                    text: 'Temperature (°C)',
+                    color: 'rgba(255, 255, 255, 1)'
                 }
             }
         }
