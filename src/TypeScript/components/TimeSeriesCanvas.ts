@@ -1,0 +1,1 @@
+export const timeSeriesCanvas: HTMLCanvasElement = document.getElementById("time-series-chart")! as HTMLCanvasElement;

@@ -184,9 +184,23 @@ main div div#feels-like{
 main div div#time-line{
     grid-area: time-line;
 
+    /* overflow: hidden; */
+
     width: 100%;
     height: 100%;
 
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem 2rem;
+
+
+    & canvas{
+        /* width: 100% !important;
+        height: 100% !important; */
+
+
+    }
 
 }
