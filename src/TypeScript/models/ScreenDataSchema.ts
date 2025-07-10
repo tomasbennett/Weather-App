@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const TempTimeSeries = z.object({
-    date: z.date(),
+    datetime: z.string().min(9),
     temp: z.number()
 });
 
@@ -20,10 +20,7 @@ const ScreenDataSchema = z.object({
         snow: z.number().positive(),
         snowdepth: z.number().positive()
     }),
-    days: z.array(z.object({
-        datetime: z.string().min(9),
-        temp: z.number()
-    }))
+    days: z.array(TempTimeSeries)
 
     // temp: z.number(),
     // minTemp: z.number(),
@@ -32,5 +29,6 @@ const ScreenDataSchema = z.object({
     // tempTimeSeries: z.array(TempTimeSeries)
 });
 
+export type ITimeSeriesData = z.infer<typeof TempTimeSeries>;
 
 export type IScreenData = z.infer<typeof ScreenDataSchema>;

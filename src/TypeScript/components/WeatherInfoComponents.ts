@@ -1,18 +1,31 @@
-export const cityNameContainer: HTMLElement = document.getElementById("")!;
+export const cityNameContainer: HTMLElement = document.getElementById("city-name")!;
 
-export const addressContainer: HTMLElement = document.getElementById("")!;
+export const addressContainer: HTMLElement = document.getElementById("full-address")!;
 
-export const descContainer: HTMLElement = document.getElementById("")!;
+export const descContainer: HTMLElement = document.getElementById("weather-description")!;
 
-export const iconContainer: HTMLElement = document.getElementById("")!;
+// export const iconContainer: HTMLElement = document.getElementById("")!; NEEDS TO BE FOUR/FIVE ICON FUNCTIONALITY
 
-export const tempContainer: HTMLElement = document.getElementById("")!;
+export const tempContainer: HTMLElement = document.getElementById("today-direct-temp")!;
 
-export const maxTempContainer: HTMLElement = document.getElementById("")!;
+export const todayTempNumber: HTMLSpanElement = document.getElementById("today-temp-number")!;
 
-export const minTempContainer: HTMLElement = document.getElementById("")!;
+export const feelsLikeNumber: HTMLSpanElement = document.getElementById("feels-like-number")!;
 
-export const feelsLikeContainer: HTMLElement = document.getElementById("")!;
+
+
+
+
+
+
+
+export const latLongContainer: HTMLElement = document.getElementById("lat-long-container")!;
+
+export const latitudeContainer: HTMLElement = document.getElementById("latitude")!;
+
+export const longitutdeContainer: HTMLElement = document.getElementById("longitude")!;
+
+export const feelsLikeContainer: HTMLElement = document.getElementById("feels-like-temp-container")!;
 
 
 
