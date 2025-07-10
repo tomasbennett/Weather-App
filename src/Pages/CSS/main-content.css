@@ -1,13 +1,15 @@
 main{
     flex: 1 1 0;
 
-    margin: auto auto;
+    /* margin: auto auto; */
+    align-self: center;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    max-width: 96rem;
+    max-width: 92.8rem;
+    min-width: 92.8rem;
 
     z-index: 1;
 
