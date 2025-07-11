@@ -8,8 +8,8 @@ main{
     align-items: center;
     justify-content: center;
 
-    max-width: 92.8rem;
-    min-width: 92.8rem;
+    width: 92.8rem;
+    min-width: fit-content;
 
     z-index: 1;
 

@@ -38,6 +38,8 @@ aside div#background-video-container video{
 
 aside div#background-video-container div#blur-window-background{
     grid-area: 1 / 1 / 1 / 1;
+
+    z-index: 2;
     
     width: 100%;
     height: 100%;
@@ -63,9 +65,27 @@ aside div#background-video-container div#blur-window-background{
 
 @keyframes becomeInvisible {
     from{
-        opacity: 0;
-    }
-    to{
         opacity: 1;
     }
+    to{
+        opacity: 0;
+    }
+}
+
+
+
+video[data-visible="open"]{
+    opacity: 1;
+}
+
+video[data-visible="closed"]{
+    opacity: 0;
+}
+
+video[data-visible="closing"]{
+    animation: becomeInvisible 500ms linear forwards;
+}
+
+video{
+    z-index: 0;
 }

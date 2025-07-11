@@ -1,10 +1,16 @@
 import { timeSeriesCanvas } from "./components/TimeSeriesCanvas";
 import { IScreenData } from "./models/ScreenDataSchema";
-import { addressContainer, cityNameContainer, descContainer, feelsLikeContainer, feelsLikeNumber, latLongContainer, latitudeContainer, longitutdeContainer, tempContainer, todayTempNumber } from "./components/WeatherInfoComponents";
+import { addressContainer, cityNameContainer, descContainer, feelsLikeContainer, feelsLikeNumber, feelsLikeTempDegree, latLongContainer, latitudeContainer, longitutdeContainer, tempContainer, todayTempDegree, todayTempNumber } from "./components/WeatherInfoComponents";
 import { searchForm, searchInput } from "./components/SearchForm";
 import { failedRequest } from "./services/FailedRequest";
 import { openingElement } from "./services/Opening";
 import { constructChart } from "./services/ChartConfig";
+import { IDegreeChangeCommand } from "./models/ICommand";
+import { DegreeChange } from "./services/CelciusFarenheit";
+import { extractHour, iconVideoSelector } from "./services/IconSelector";
+
+const tempDegreeChange: IDegreeChangeCommand = new DegreeChange(tempContainer);
+const feelsLikeDegreeChange: IDegreeChangeCommand = new DegreeChange(feelsLikeContainer);
 
 
 
@@ -111,6 +117,11 @@ async function runScreenData(city: string): Promise<void> {
             todayTempNumber.textContent = importedJSON?.currentConditions?.temp?.toString();
             openingElement(tempContainer);
 
+            tempDegreeChange.setIsFarenheit(true);
+            todayTempDegree.textContent = "F";
+            
+            tempContainer.addEventListener("click", tempDegreeChange.execute);
+
         } else {
             const error: Element = tempContainer.nextElementSibling!;
             openingElement(error as HTMLElement);
@@ -125,6 +136,12 @@ async function runScreenData(city: string): Promise<void> {
         ) {
             feelsLikeNumber.textContent = importedJSON?.currentConditions?.feelslike?.toString();
             openingElement(feelsLikeContainer);
+            
+            feelsLikeDegreeChange.setIsFarenheit(true);
+            feelsLikeTempDegree.textContent = "F";
+
+            feelsLikeContainer.addEventListener("click", feelsLikeDegreeChange.execute);
+
 
         } else {
             const error: Element = feelsLikeContainer.nextElementSibling!;
@@ -153,6 +170,23 @@ async function runScreenData(city: string): Promise<void> {
             openingElement(error as HTMLElement);
 
         }
+
+
+        if (
+            typeof importedJSON?.currentConditions?.datetime === "string" &&
+            typeof importedJSON?.currentConditions?.snow === "number" &&
+            typeof importedJSON?.currentConditions?.precip === "number"
+        ) {
+
+            iconVideoSelector(extractHour(importedJSON?.currentConditions?.datetime), importedJSON?.currentConditions?.snow, importedJSON?.currentConditions?.precip);
+
+
+        } else {
+            const error: HTMLElement = document.getElementById("no-icon-available")!;
+            openingElement(error as HTMLElement);
+
+        }
+
 
 
 
@@ -241,6 +275,8 @@ async function runScreenData(city: string): Promise<void> {
 }
 
 
+
+
 const city: string = "London";
 searchInput.value = city;
 runScreenData(city);
@@ -249,6 +285,12 @@ runScreenData(city);
 
 searchForm.addEventListener("submit", async (e: SubmitEvent) => {
     e.preventDefault();
+
+    tempContainer.removeEventListener("click", tempDegreeChange.execute);
+    feelsLikeContainer.removeEventListener("click", feelsLikeDegreeChange.execute);
+
+    
+
 
     const allOpen = document.querySelectorAll("[data-animation='opening']");
     const promises: Promise<void>[] = [];

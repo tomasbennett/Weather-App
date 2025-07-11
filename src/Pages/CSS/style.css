@@ -36,6 +36,7 @@ body{
     color: white;
 
     width: 100dvw;
+    min-width: fit-content;
     height: 100dvh;
 }
 
@@ -89,6 +90,11 @@ body{
 *[data-animation="closing"]{
     animation: closing 800ms ease-out forwards;
 }
+
+
+
+
+
 
 
 .temperature{

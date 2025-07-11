@@ -16,7 +16,7 @@ const ScreenDataSchema = z.object({
         temp: z.number(),
         feelslike: z.number(),
         datetime: z.string(),
-        precipprob: z.number().positive(),
+        precip: z.number().positive(),
         snow: z.number().positive(),
         snowdepth: z.number().positive()
     }),

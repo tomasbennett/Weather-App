@@ -10,6 +10,11 @@ export const tempContainer: HTMLElement = document.getElementById("today-direct-
 
 export const todayTempNumber: HTMLSpanElement = document.getElementById("today-temp-number")!;
 
+export const todayTempDegree: HTMLSpanElement = tempContainer.querySelector(".temp-degree")!;
+
+
+
+
 export const feelsLikeNumber: HTMLSpanElement = document.getElementById("feels-like-number")!;
 
 
@@ -27,7 +32,7 @@ export const longitutdeContainer: HTMLElement = document.getElementById("longitu
 
 export const feelsLikeContainer: HTMLElement = document.getElementById("feels-like-temp-container")!;
 
-
+export const feelsLikeTempDegree: HTMLSpanElement = feelsLikeContainer.querySelector(".temp-degree")!;
 
 
 
